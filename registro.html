@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duermevela | Registrarse</title>
+    <link rel="shortcut icon" href="images/logo2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <script src="script/datos.js"></script>
+</head>
+<body>
+<div id="datos">
+    <form id="registroForm" onsubmit="return validarRegistro()" action="index.html">
+        <img src="images/logo.png" alt="Logo 2" style="width: 100px; height: 100px">
+        <h2>Registrarse</h2>
+            <div class="campo">
+                <input type="email" id="email" name="email" placeholder="&#128231; Correo electrónico">
+            </div>
+            <div class="campo">
+                <input type="text" id="user" name="user" required placeholder="&#128100; Nombre de usuario">
+            </div>
+            <div class="campo">
+                <input type="password" id="password" name="password" required placeholder="&#128274; Contraseña">
+            </div>
+            <div class="campo">
+                <input type="password" id="confPassword" name="confPassword" required placeholder="&#128274; Repite la contraseña">
+            </div>
+            <span id="errorMensaje" class="error"></span><br>
+            <div class="boton">
+                <button type="submit">Registrarse</button>
+            </div>
+            <a href="login.html" class="back">&#8592; Back</a>
+    </form>
+</div>
+<!--<div class="anuncio" style="width: 100px; height: 100px">
+    <button class="cerrar" onclick="cerrarAnuncio()">X</button>
+    <a href="https://laura1513.github.io/pagina_erasmus_laura/erasmusCastellano/index_castellano.html">
+        <img src="images/erasmus.jpg" alt="Anuncio de mi página web">
+    </a>
+</div>-->
+</body>
+</html>
