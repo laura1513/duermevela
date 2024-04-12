@@ -50,5 +50,8 @@
     height: auto;
 }
 .item:hover {
-    border: 2px solid red; /* Cambiamos el color del borde al estar sobre el elemento */
+    border: 2px solid red;
+}
+.prox {
+    color: #a9abb4;
 }

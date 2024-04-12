@@ -20,20 +20,24 @@
         <div class="dropdown-content" id="dropdownContent">
             <a href="index.html">Inicio</a>
             <a href="perfil.html">Perfil</a>
-            <a href="#">Contacto</a>
-            <a href="#">Premium</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="premium.html">Premium</a>
         </div>
     </div>
 </div>
-<div class="card">
-    <img src="images/perfilFoto.jpg" alt="Avatar" style="width:100%" id="foto">
-    <div class="container">
-        <h4 id="nombre"><b>User user</b></h4>
-        <p id="email">user@user.com</p>
-        <button onclick="editarPerfil()">Editar perfil</button>
-        <input type="text" id="nombreInput" disabled>
-        <input type="email" id="emailInput" disabled>
-        <button id="guardarCambiosBtn" style="display:none;" onclick="guardarCambios()">Guardar cambios</button>
+<div class="container2">
+    <div class="card">
+        <img src="images/perfilFoto.jpg" alt="Avatar" style="width:100%" id="foto">
+        <div class="container">
+            <h4 id="nombre"><b>User user</b></h4>
+            <p id="email">user@user.com</p>
+        </div>
+    </div>
+    <div class="cambios">
+        <button onclick="editarPerfil()">Editar perfil</button><br>
+        <input type="text" id="nombreInput" disabled><br>
+        <input type="email" id="emailInput" disabled><br>
+        <button id="guardarCambiosBtn" style="display:none;" onclick="guardarCambios()">Guardar cambios</button><br>
     </div>
 </div>
 </body>

@@ -14,18 +14,8 @@ function validarRegistro() {
 
     if (contrasena !== confirmarContrasena) {
         errorMensaje.innerHTML = "Las contraseñas no coinciden.";
-        Notification.requestPermission()
-            .then(permission => {
-                if (permission === "granted") {
-                    new Notification("Las contraseñas no coinciden");
-                }
-            });
         return false;
     }
 
     return true;
-}
-function cerrarAnuncio() {
-    var anuncio = document.getElementById("anuncio");
-    anuncio.innerHTML = "";
 }
