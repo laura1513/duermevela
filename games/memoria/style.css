@@ -1,0 +1,26 @@
+.imagen {
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    align-items: center;
+}
+.im {
+    border: solid 3px #ff4c71;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: border-color 0.3s;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
