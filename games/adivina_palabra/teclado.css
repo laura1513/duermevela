@@ -1,0 +1,41 @@
+#floating-keyboard {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.key {
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.key:hover {
+    background-color: #f0f0f0;
+}
+
+.spacebar {
+    flex-grow: 1;
+}
+
+.special {
+    color: #007bff; /* Cambia el color de los caracteres especiales si lo deseas */
+}

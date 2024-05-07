@@ -1,13 +1,15 @@
-//Arreglo que contiene las palabras para jugar
-let arrayPalabras =["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
+// Arreglo que contiene las palabras para jugar
+let arrayPalabras = ["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA", "BALEARES", "VENUS"];
 let ayudas = [
     "Instrumento Musical",
     "Animal de la selva",
     "Es un color",
     "Nombre de mujer",
     "Hardware de computadora",
-    "Es un Pais"
-]
+    "Es un Pais",
+    "Son unas islas",
+    "Es un planeta"
+];
 let cantPalabrasJugadas = 0;
 let intentosRestantes = 5;
 let posActual;
@@ -15,10 +17,11 @@ let arrayPalabraActual = [];
 let cantidadAcertadas = 0;
 let divsPalabraActual = [];
 let totalQueDebeAcertar;
-function cargarNuevaPalabra(){
+
+function cargarNuevaPalabra() {
     cantPalabrasJugadas++;
-    if(cantPalabrasJugadas>6){
-        arrayPalabras =["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
+    if (cantPalabrasJugadas > arrayPalabras.length) {
+        arrayPalabras = ["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
         ayudas = [
             "Instrumento Musical",
             "Animal de la selva",
@@ -26,16 +29,16 @@ function cargarNuevaPalabra(){
             "Nombre de mujer",
             "Hardware de computadora",
             "Es un Pais"
-        ]
+        ];
     }
-    posActual = Math.floor(Math.random()*arrayPalabras.length);
+    posActual = Math.floor(Math.random() * arrayPalabras.length);
     let palabra = arrayPalabras[posActual];
     totalQueDebeAcertar = palabra.length;
     cantidadAcertadas = 0;
     arrayPalabraActual = palabra.split('');
     document.getElementById("palabra").innerHTML = "";
     document.getElementById("letrasIngresadas").innerHTML = "";
-    for(i=0;i<palabra.length;i++){
+    for (i = 0; i < palabra.length; i++) {
         var divLetra = document.createElement("div");
         divLetra.className = "letra";
         document.getElementById("palabra").appendChild(divLetra);
@@ -44,48 +47,64 @@ function cargarNuevaPalabra(){
     intentosRestantes = 5;
     document.getElementById("intentos").innerHTML = intentosRestantes;
     document.getElementById("ayuda").innerHTML = ayudas[posActual];
-    arrayPalabras.splice(posActual,1);
-    ayudas.splice(posActual,1);
-
+    arrayPalabras.splice(posActual, 1);
+    ayudas.splice(posActual, 1);
 }
+
 cargarNuevaPalabra();
-document.addEventListener("keydown", event => {
-    if(isLetter(event.key)){
+
+// Función para manejar eventos táctiles y de teclado
+function handleInput(event) {
+    let inputKey;
+    if (event.type === "keydown") {
+        inputKey = event.key.toUpperCase();
+    } else if (event.type === "touchstart") {
+        inputKey = event.target.textContent.toUpperCase();
+    }
+
+    if (isLetter(inputKey)) {
         let letrasIngresadas = document.getElementById("letrasIngresadas").innerHTML;
         letrasIngresadas = letrasIngresadas.split('');
-        if(letrasIngresadas.lastIndexOf(event.key.toUpperCase()) === -1){
-            let acerto = false;
-            for(i=0;i<arrayPalabraActual.length;i++){
-                if(arrayPalabraActual[i] == event.key.toUpperCase()){//acertó
-                    divsPalabraActual[i].innerHTML = event.key.toUpperCase();
-                    acerto = true;
-                    //Aumento en uno la cantidad de letras acertadas
+        if (letrasIngresadas.lastIndexOf(inputKey) === -1) {
+            let acierto = false;
+            for (i = 0; i < arrayPalabraActual.length; i++) {
+                if (arrayPalabraActual[i] == inputKey) { // Acertó
+                    divsPalabraActual[i].innerHTML = inputKey;
+                    acierto = true;
                     cantidadAcertadas = cantidadAcertadas + 1;
                 }
             }
-            if(acerto==true){
-                if(totalQueDebeAcertar == cantidadAcertadas){
-                    //asigno a cada div de la palabra la clase pintar para ponerlo en verde cada div
-                    for(i=0;i<arrayPalabraActual.length;i++){
-                        divsPalabraActual[i].className="letra pintar";
+            if (acierto == true) {
+                if (totalQueDebeAcertar == cantidadAcertadas) {
+                    // Asigno a cada div de la palabra la clase pintar para ponerlo en verde cada div
+                    for (i = 0; i < arrayPalabraActual.length; i++) {
+                        divsPalabraActual[i].className = "letra pintar";
                     }
                 }
-            }else{
+            } else {
                 intentosRestantes = intentosRestantes - 1;
                 document.getElementById("intentos").innerHTML = intentosRestantes;
-                if(intentosRestantes<=0){
-                    for(i=0;i<arrayPalabraActual.length;i++){
-                        divsPalabraActual[i].className="letra pintarError";
+                if (intentosRestantes <= 0) {
+                    for (i = 0; i < arrayPalabraActual.length; i++) {
+                        divsPalabraActual[i].className = "letra pintarError";
                     }
                 }
             }
-            document.getElementById("letrasIngresadas").innerHTML += event.key.toLocaleUpperCase() + " - ";
+            document.getElementById("letrasIngresadas").innerHTML += inputKey + " - ";
         }
     }
+}
+
+document.addEventListener("keydown", handleInput);
+document.querySelectorAll(".letra").forEach(item => {
+    item.addEventListener("touchstart", handleInput);
 });
+
+// Función para verificar si es una letra
 function isLetter(str) {
     return str.length === 1 && str.match(/[a-z]/i);
 }
+
 function toggleDropdown() {
     var dropdownContent = document.getElementById("dropdownContent");
     dropdownContent.classList.toggle("show");
