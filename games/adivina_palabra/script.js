@@ -1,5 +1,15 @@
 // Arreglo que contiene las palabras para jugar
-let arrayPalabras = ["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA", "BALEARES", "VENUS"];
+let arrayPalabras = [
+    "GUITARRA",
+    "ELEFANTE",
+    "TURQUESA",
+    "REBECA",
+    "TECLADO",
+    "INGLATERRA",
+    "BALEARES",
+    "VENUS",
+    "CASTELLON"
+];
 let ayudas = [
     "Instrumento Musical",
     "Animal de la selva",
@@ -8,7 +18,8 @@ let ayudas = [
     "Hardware de computadora",
     "Es un Pais",
     "Son unas islas",
-    "Es un planeta"
+    "Es un planeta",
+    "Provincia española"
 ];
 let cantPalabrasJugadas = 0;
 let intentosRestantes = 5;
@@ -22,14 +33,27 @@ let palabraCorrecta = document.getElementById("correcta");
 function cargarNuevaPalabra() {
     cantPalabrasJugadas++;
     if (cantPalabrasJugadas > arrayPalabras.length) {
-        arrayPalabras = ["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
+        arrayPalabras = [
+            "GUITARRA",
+            "ELEFANTE",
+            "TURQUESA",
+            "REBECA",
+            "TECLADO",
+            "INGLATERRA",
+            "BALEARES",
+            "VENUS",
+            "CASTELLON"
+        ];
         ayudas = [
             "Instrumento Musical",
             "Animal de la selva",
             "Es un color",
             "Nombre de mujer",
             "Hardware de computadora",
-            "Es un Pais"
+            "Es un Pais",
+            "Son unas islas",
+            "Es un planeta",
+            "Provincia española"
         ];
     }
     posActual = Math.floor(Math.random() * arrayPalabras.length);
