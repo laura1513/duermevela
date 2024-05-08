@@ -74,6 +74,7 @@ function cargarNuevaPalabra() {
     document.getElementById("ayuda").innerHTML = ayudas[posActual];
     arrayPalabras.splice(posActual, 1);
     ayudas.splice(posActual, 1);
+    palabraCorrecta.innerHTML = "";
 }
 
 cargarNuevaPalabra();
