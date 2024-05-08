@@ -17,6 +17,7 @@ let arrayPalabraActual = [];
 let cantidadAcertadas = 0;
 let divsPalabraActual = [];
 let totalQueDebeAcertar;
+let palabraCorrecta = document.getElementById("correcta");
 
 function cargarNuevaPalabra() {
     cantPalabrasJugadas++;
@@ -87,6 +88,7 @@ function handleInput(event) {
                 if (intentosRestantes <= 0) {
                     for (i = 0; i < arrayPalabraActual.length; i++) {
                         divsPalabraActual[i].className = "letra pintarError";
+                        palabraCorrecta.innerHTML = "La palabra correcta es " + arrayPalabraActual.join("")
                     }
                 }
             }
