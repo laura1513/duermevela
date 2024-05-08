@@ -5,7 +5,7 @@ var found =  0;
 //info del juego: https://codepen.io/adansuku/pen/RWZWRd
 //ahe cogido el código de aquí, sinceridad siempre
 var timerId = 0;$(document).ready(function() {
-    $(".imagen").show(0).delay(750).hide(0);
+    $(".imagen").show(0).delay(1500).hide(0);
     $(".im").click(abrirImagen);
 
     function abrirImagen() {
