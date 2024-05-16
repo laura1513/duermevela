@@ -124,6 +124,8 @@ window.onload = function () {
             }
         };
         document.addEventListener('touchmove', function(event) {
+            // Prevenir el comportamiento predeterminado de desplazamiento
+            event.preventDefault();
 
             // Obtener la posición del dedo
             var touch = event.touches[0];
