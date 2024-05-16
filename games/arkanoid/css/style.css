@@ -1,0 +1,60 @@
+/* definición de variables de colores */
+* {
+    box-sizing: border-box;
+    transition: all 0.5s;
+}
+
+.container {
+    width: 100vw; /* Ajusta el ancho al 100% del viewport width */
+    height: 80vh; /* Ajusta la altura al 100% del viewport height */
+    display: grid;
+    place-items: center;
+    z-index: -1000;
+}
+
+canvas {
+    border: 2px #333 solid;
+    background-color: #eee;
+    background-image: url(../img/fondo.png);
+    background-size: cover;
+    background-position: 50%;
+    max-width: 100%; /* Ajusta el ancho máximo del canvas al ancho del dispositivo */
+    max-height: calc(100vh - 100px); /* Ajusta la altura máxima al viewport height menos 100px */
+    width: 90%; /* Ancho del canvas al 90% del viewport width */
+    height: 70vh; /* Altura del canvas al 70% del viewport height */
+    margin: 0 auto; /* Centra el canvas horizontalmente */
+    display: block; /* Hace que el canvas sea un elemento de bloque */
+    box-sizing: border-box; /* Incluye el borde en el tamaño total del canvas */
+}
+
+#audio {
+    display: none;
+}
+
+#iniciar {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    color: #d8315b;
+    background-color: #efefef;
+    border: none;
+    border-radius: 10px;
+    top: 30vh; /* Ajusta la posición superior al 30% del viewport height */
+    width: 20vw; /* Ancho del botón al 20% del viewport width */
+    height: 5vh; /* Altura del botón al 5% del viewport height */
+    font-size: 1.5vw; /* Tamaño de fuente del botón al 1.5% del viewport width */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+#iniciar:hover {
+    color: #efefef;
+    background-color: #f67192;
+}
+.botones {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+#girarDerecha, #girarIzquierda {
+    margin-left: 10px;
+    margin-right: 10px;
+}
