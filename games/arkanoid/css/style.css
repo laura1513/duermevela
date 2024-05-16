@@ -54,7 +54,10 @@ canvas {
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
 }
-#girarDerecha, #girarIzquierda {
+#moverDerecha, #moverIzquierda {
     margin-left: 10px;
     margin-right: 10px;
+    border: none;
+    width: 64px;
+    height: 64px;
 }
