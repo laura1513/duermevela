@@ -124,13 +124,14 @@ window.onload = function () {
             }
         };
         document.addEventListener('touchmove', function(event) {
-            // Prevenir el comportamiento predeterminado de desplazamiento
-            if (
-                movimiento.pageX - playerWidth / 2 >= margenMin &&
-                movimiento.pageX + playerWidth / 2 <= margenMax
-            ) {
-                playerX =
-                    movimiento.pageX - canvas.offsetLeft - playerWidth / 2;
+
+            // Obtener la posición del dedo
+            var touch = event.touches[0];
+            var touchX = touch.pageX - canvas.offsetLeft;
+
+            // Ajustar la posición del jugador en función de la posición del dedo
+            if (touchX - playerWidth / 2 >= margenMin && touchX + playerWidth / 2 <= margenMax) {
+                playerX = touchX - playerWidth / 2;
             }
         });
 
