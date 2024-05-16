@@ -29,8 +29,8 @@ window.onload = function () {
     var movimientoPlayer = 4;
     var finPartida = 0;
     var vidas = 3;
-    var left = document.getElementById("girarIzquierda");
-    var right= document.getElementById("girarDerecha")
+    //var left = document.getElementById("girarIzquierda");
+    //var right= document.getElementById("girarDerecha")
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -113,7 +113,7 @@ window.onload = function () {
         ctx.fill();
         ctx.closePath();
         document.onmousemove = function (movimiento) {
-            // Movimiento con ratón ─────────────────────────────────────────
+            // Movimiento con ratón
             //definimos si hay que mover al player en función de la ubicación del ratón
             if (
                 movimiento.pageX - playerWidth / 2 >= margenMin &&
@@ -123,6 +123,19 @@ window.onload = function () {
                     movimiento.pageX - canvas.offsetLeft - playerWidth / 2;
             }
         };
+        document.addEventListener('touchmove', function(event) {
+            // Prevenir el comportamiento predeterminado de desplazamiento
+            event.preventDefault();
+
+            // Obtener la posición del dedo
+            var touch = event.touches[0];
+            var touchX = touch.pageX - canvas.offsetLeft;
+
+            // Ajustar la posición del jugador en función de la posición del dedo
+            if (touchX - playerWidth / 2 >= margenMin && touchX + playerWidth / 2 <= margenMax) {
+                playerX = touchX - playerWidth / 2;
+            }
+        });
 
         // Movimiento con teclado ──────────────────────────────────────────
         document.addEventListener("keydown", keyDownHandler, false);
@@ -143,7 +156,7 @@ window.onload = function () {
                 leftPressed = false;
             }
         }
-        left.addEventListener('touchstart', function() {
+        /*left.addEventListener('touchstart', function() {
             leftPressed = true;
         });
 
@@ -157,7 +170,7 @@ window.onload = function () {
 
         right.addEventListener('touchend', function() {
             rightPressed = false;
-        });
+        });*/
 
         if (rightPressed && playerX + playerWidth < canvas.width) {
             playerX += movimientoPlayer;
